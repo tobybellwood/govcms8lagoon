@@ -12,6 +12,7 @@ RUN /app/sanitize.sh \
 COPY .docker/images/test/* /app/web/sites/all/drutiny/profiles/
 
 ENV SITE_AUDIT_VERSION more_profiles
+ENV PATH="/app/vendor/bin:${PATH}"
 RUN wget https://github.com/tobybellwood/audit-site/archive/$SITE_AUDIT_VERSION.tar.gz \
     && tar -C /tmp -xzvf $SITE_AUDIT_VERSION.tar.gz \
     && rm $SITE_AUDIT_VERSION.tar.gz \
@@ -20,4 +21,5 @@ RUN wget https://github.com/tobybellwood/audit-site/archive/$SITE_AUDIT_VERSION.
     && rm -Rf /tmp/audit-site-$SITE_AUDIT_VERSION \
     && php -d memory_limit=-1 /usr/local/bin/composer --working-dir=/app/web/sites/all/drutiny/ install --ignore-platform-reqs \
     && mv /app/web/sites/all/drutiny/profiles/drutiny /usr/bin/drutiny \
-    && chmod +x /usr/bin/drutiny
+    && chmod +x /usr/bin/drutiny \
+    && rm -rf /home/.composer/vendor/bin/drush.launcher
