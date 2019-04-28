@@ -106,7 +106,7 @@
             "assignees": [],
             "blacklist": ["govcms/govcms", "drupal/core", "webflo/drupal-core-strict"],
             "one_pull_request_per_package": 1,
-            "timeframe_disallowed": "06:00-18:00",
+            "timeframe_disallowed": "0",
             "timezone": "+1000",
             "update_with_dependencies": 1
         }
