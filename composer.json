@@ -14,7 +14,8 @@
         },
         {
             "type": "vcs",
-            "url": "https://www.github.com/govcms/govcms8.git"
+            "url": "https://www.github.com/govcms/govcms8.git",
+            "no-api": true
         }
     ],
     "require": {
